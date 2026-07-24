@@ -6,6 +6,7 @@ import { MethodologiesComponent } from '../../sections/methodologies/methodologi
 import { ServicesComponent } from '../../sections/services/services.component';
 import { SiteHeaderComponent } from '../../sections/site-header/site-header.component';
 import { TestimonialsComponent } from '../../sections/testimonials/testimonials.component';
+import { ScrollRevealDirective } from '../../shared/scroll-reveal.directive';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +17,8 @@ import { TestimonialsComponent } from '../../sections/testimonials/testimonials.
     MethodologiesComponent,
     ServicesComponent,
     TestimonialsComponent,
-    ContactComponent
+    ContactComponent,
+    ScrollRevealDirective
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'

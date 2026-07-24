@@ -85,16 +85,50 @@ p:not(.eyebrow) {
 }
 
 article {
+  --card-offset: 0px;
+  animation: cardRise 620ms ease both;
   background: rgba(255, 250, 244, 0.88);
   border: 1px solid rgba(93, 67, 47, 0.12);
   border-radius: 8px;
   box-shadow: 0 22px 56px rgba(92, 61, 39, 0.08);
   min-height: 230px;
   padding: 28px;
+  transform:
+    perspective(900px)
+    rotateX(var(--tilt-y, 0deg))
+    rotateY(var(--tilt-x, 0deg))
+    translateY(var(--card-offset));
+  transition: box-shadow 180ms ease, transform 180ms ease;
+}
+
+article:nth-child(1) {
+  animation-delay: 80ms;
 }
 
 article:nth-child(2) {
-  transform: translateY(22px);
+  --card-offset: 22px;
+  animation-delay: 180ms;
+}
+
+article:nth-child(3) {
+  animation-delay: 280ms;
+}
+
+article:hover {
+  box-shadow: 0 28px 64px rgba(92, 61, 39, 0.12);
+  transform:
+    perspective(900px)
+    rotateX(var(--tilt-y, 0deg))
+    rotateY(var(--tilt-x, 0deg))
+    translateY(calc(var(--card-offset) - 6px));
+}
+
+article:nth-child(2):hover {
+  transform:
+    perspective(900px)
+    rotateX(var(--tilt-y, 0deg))
+    rotateY(var(--tilt-x, 0deg))
+    translateY(calc(var(--card-offset) - 8px));
 }
 
 article span {
@@ -181,8 +215,17 @@ blockquote {
 
   article,
   article:nth-child(2) {
+    --card-offset: 0px;
     min-height: auto;
-    transform: none;
+  }
+
+  article:hover,
+  article:nth-child(2):hover {
+    transform:
+      perspective(900px)
+      rotateX(var(--tilt-y, 0deg))
+      rotateY(var(--tilt-x, 0deg))
+      translateY(-4px);
   }
 
   .credentials {
@@ -205,5 +248,32 @@ blockquote {
 
   article span {
     margin-bottom: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  article {
+    animation: none;
+    transition: none;
+  }
+}
+
+@keyframes cardRise {
+  from {
+    opacity: 0;
+    transform:
+      perspective(900px)
+      rotateX(0deg)
+      rotateY(0deg)
+      translateY(calc(var(--card-offset) + 18px));
+  }
+
+  to {
+    opacity: 1;
+    transform:
+      perspective(900px)
+      rotateX(var(--tilt-y, 0deg))
+      rotateY(var(--tilt-x, 0deg))
+      translateY(var(--card-offset));
   }
 }

@@ -10,7 +10,6 @@ export class SiteHeaderComponent {
     { label: 'Quien soy', href: '#quien-soy' },
     { label: 'Metodologias', href: '#metodologias' },
     { label: 'Servicios', href: '#servicios' },
-    { label: 'Testimonios', href: '#testimonios' },
     { label: 'Contacto', href: '#contacto' }
   ];
 }
