@@ -1,0 +1,26 @@
+<section class="hero section" id="inicio">
+  <div class="hero-copy">
+    <p class="eyebrow">MAG. MTRA. LAURA GÓMEZ</p>
+    <h1>
+      Transformando la educación desde la <em>inclusión.</em>
+    </h1>
+    <p class="lead">
+      25 años acompañando a familias, docentes e instituciones a construir
+      espacios educativos donde todos puedan aprender y habitarlos con
+      dignidad.
+    </p>
+  </div>
+
+  <div class="hero-media" aria-label="Retrato principal de la especialista">
+    <div class="hero-circle" aria-hidden="true"></div>
+    <div class="portrait-glow" aria-hidden="true"></div>
+    <img
+      class="hero-portrait"
+      [class.is-hidden]="portraitMissing"
+      src="/images/hero-persona.png"
+      alt="Especialista en metodologias activas"
+      (error)="portraitMissing = true"
+    >
+    <div class="desk-surface" aria-hidden="true"></div>
+  </div>
+</section>

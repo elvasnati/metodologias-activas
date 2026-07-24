@@ -1,0 +1,14 @@
+<header class="site-header">
+  <a class="brand" href="#inicio" aria-label="Ir al inicio">
+    <strong>Laura Gomez</strong>
+    <span>Educacion inclusiva</span>
+  </a>
+
+  <nav class="nav" aria-label="Navegacion principal">
+    @for (item of navItems; track item.href) {
+      <a [href]="item.href">{{ item.label }}</a>
+    }
+  </nav>
+
+  <a class="contact-button" href="#contacto">Contactarme</a>
+</header>
